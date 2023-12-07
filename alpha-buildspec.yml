@@ -17,6 +17,8 @@ phases:
       - node --version
       - pwd
       - ls
+      - pip install cloudformation-cli-typescript-plugin
+      - cfn --version
 
   build:
     commands:
