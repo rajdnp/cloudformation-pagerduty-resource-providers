@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.x
+      python: 3.9.6
     commands:
       - echo Entered the install phase...
       - echo About to build $RESOURCE_PATH
@@ -32,7 +32,7 @@ phases:
       - cfn generate
       - npm install && npm run build
       - python ../get_type_configuration.py
-      - cfn submit --dry-run
+      - cfn submit --dry-run --verbose
       - nohup sam local start-lambda &
       - sleep 10
       - cfn test
