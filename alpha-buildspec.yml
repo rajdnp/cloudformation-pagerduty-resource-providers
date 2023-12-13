@@ -32,6 +32,9 @@ phases:
       - cfn generate
       - npm install && npm run build
       - python ../get_type_configuration.py
+      - filepath=`pwd`
+      - echo $filepath
+      - sam build --debug --build-dir $filepath/build TypeFunction
       - cfn submit --dry-run
       - nohup sam local start-lambda &
       - sleep 10
