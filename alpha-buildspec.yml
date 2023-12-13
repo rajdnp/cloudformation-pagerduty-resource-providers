@@ -34,6 +34,9 @@ phases:
       - python ../get_type_configuration.py
       - filepath=`pwd`
       - echo $filepath
+      - npm install --include=optional
+      - npm --version
+      - node --version
       - sam build --debug --build-dir $filepath/build TypeFunction
       - cfn submit --dry-run
       - nohup sam local start-lambda &
